@@ -1,22 +1,66 @@
+import React, { useEffect, useState } from "react";
 import TableItem from "../../components/TableItem/TableItem";
 import AddItem from "../../components/TableItem/AddItem/AddItem";
 import Preloader from "../../components/Preloader/Preloader";
+import axios from "axios";
 
 export default function Table(props) {
+    const [words, setWords] = useState(null);
+    const [isFetch, setIsFetch] = useState(true);
 
-    if (!props.words) {
-        return null;
+    let api = {
+        setWordsToServerHandler: (russianName, englishName, setSubmitting) => {
+            setIsFetch(true);
+            axios.post("/api/words", { name: russianName, name_en: englishName }).then(
+                response => {
+                    if (!response.data.error) {
+                        //Получаем заного данные с сервера
+                        api.getWordsFromServerHandler();
+                        //Раздизейбливаем кнопку в форме
+                        setSubmitting(false);
+                    }
+                }
+            );
+        },
+        getWordsFromServerHandler: () => {
+            setIsFetch(true);
+            axios.get("/api/words").then(response => {
+                setWords(response.data);
+                setIsFetch(false);
+            });
+        },
+        deleteItemHandler: (id) => {
+            setIsFetch(true);
+            axios.delete(`/api/words/${id}`).then(
+                response => {
+                    api.getWordsFromServerHandler();
+                }
+            );
+        },
     }
 
-    const showTableItem = props.words.map((item, index) => (
-        <TableItem deleteItemHandler={props.deleteItemHandler} key={item.id} uniqKey={item.id} index={index + 1} russianName={item.name} englishName={item.name_en} />
+    useEffect(() => {
+        api.getWordsFromServerHandler();
+    }, []);
+
+    if (!words) {
+        return <Preloader />
+    }
+
+    const showTableItem = words.map((item, index) => (
+        <TableItem deleteItemHandler={api.deleteItemHandler}
+            key={item.id} uniqKey={item.id} index={index + 1}
+            russianName={item.name} englishName={item.name_en} />
     ));
+
+
 
     return (
         <div>
-            <AddItem setWordsToServerHandler={props.setWordsToServerHandler} isAdd={props.isAdd} />
+            <AddItem setWordsToServerHandler={api.setWordsToServerHandler}
+                isAdd={props.isAdd} />
             <h1 className="mb-4">Словарный запас</h1>
-            {props.isFetch ? <Preloader />
+            {isFetch ? <Preloader />
                 : <table className="table table-striped mb-5">
                     <thead>
                         <tr>
