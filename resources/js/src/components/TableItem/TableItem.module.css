@@ -1,0 +1,29 @@
+.row{
+
+}
+.edit, .times{
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 1s, color .3s;
+}
+
+.row:hover .edit, .row:hover .times{
+    opacity: 1;
+
+}
+
+.row:hover .times{
+    color: #dc3545;
+}
+
+.row:hover .edit{
+    color: #007bff;
+}
+.check{
+    cursor: pointer;
+    color:#198754;
+}
+.undo{
+    cursor: pointer;
+    color:#0d6efd;
+}

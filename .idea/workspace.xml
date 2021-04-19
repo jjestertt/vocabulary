@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c22396c1-cc6f-4741-8051-4098c3cad182" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/js/src/components/TableItem/EditItem/EditItem.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/src/components/TableItem/EditItem/EditItem.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/js/src/components/TableItem/TableItem.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/components/TableItem/TableItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/TableItem/TableItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/src/containers/Table/Table.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/containers/Table/Table.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/src/hoc/Layout/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/hoc/Layout/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +29,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/src/components/TableItem/EditItem" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/js/src/components/TableItem/EditItem" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c22396c1-cc6f-4741-8051-4098c3cad182" name="Default Changelist" comment="" />
@@ -35,7 +48,25 @@
       <updated>1618707226030</updated>
       <workItem from="1618707231252" duration="14000" />
       <workItem from="1618707252509" duration="2000" />
+      <workItem from="1618830617367" duration="89000" />
+      <workItem from="1618836474765" duration="5716000" />
+      <workItem from="1618845355130" duration="9155000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
