@@ -47,7 +47,7 @@ class wordsController extends Controller
         if(is_null($word)){
             return response()->json(['error' => true, 'message' => 'Id not found'], 404);
         }
-        //Если id найден делаем валидацию входящих данных 
+        //Если id найден делаем валидацию входящих данных
         //Создаем массив с правилами для валидации
         $rules = [
             'name'=>'required|min:2|max:20',
@@ -61,7 +61,7 @@ class wordsController extends Controller
         }
         //Если все успешно то тогда обновляем обьект и возвращаем его
         $word -> update($request -> all());
-        return response()-> json($word, 201); 
+        return response()-> json($word, 201);
     }
     public function wordsDelete($id){
         // Ищем обьект по id
@@ -70,13 +70,29 @@ class wordsController extends Controller
         if(is_null($word)){
             return response()->json(['error' => true, 'message' => 'Id not found'], 404);
         }
-        //Если id найден удаляем обьект 
+        //Если id найден удаляем обьект
         $word -> delete();
-        return response()-> json('', 204); 
+        return response()-> json('', 204);
     }
 
-    public function wordsByRus($name){
-        $projects = WordsModel::where('name', $name)->get();
+    public function searchByWordEmpty() {
+        return response()->json(['error' => true, 'message' => 'Query is empty'], 400);
+    }
+
+    public function searchByWord($query){
+        if (strlen($query) < 1){
+            return response()->json(['error' => true, 'message' => 'min 1 symbol'], 400);
+        } else if (strlen($query) > 20){
+            return response()->json(['error' => true, 'message' => 'max 20 symbols'], 400);
+        }
+
+        $projects = WordsModel::where('name', 'like', '%' . $query . '%')
+            ->orWhere('name_en', 'like', '%' . $query . '%')->get();
+
+        if(count($projects) == 0){
+            return response()->json(['error' => true, 'message' => 'Not found'], 404);
+        }
+
         return response()->json($projects, 200);
     }
 }

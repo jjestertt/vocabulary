@@ -1,0 +1,8 @@
+.input {
+    overflow: hidden;
+    width: 0;
+    transition: width ease .3s;
+}
+.input.active{
+    width: 200px;
+}

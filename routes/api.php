@@ -24,4 +24,7 @@ Route::get('/words/{id}', [WordsController::class, 'wordsById']);
 Route::post('/words', [WordsController::class, 'wordsCreate']);
 Route::delete('/words/{id}', [WordsController::class, 'wordsDelete']);
 Route::put('/words/{id}', [WordsController::class, 'wordsUpdate']);
-Route::get('/search/{name}', [WordsController::class, 'wordsByRus']);
+
+
+Route::get('/search', [WordsController::class, 'searchByWordEmpty']);
+Route::get('/search/{name}', [WordsController::class, 'searchByWord']);

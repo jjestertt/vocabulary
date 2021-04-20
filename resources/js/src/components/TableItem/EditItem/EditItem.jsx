@@ -50,7 +50,7 @@ export default function EditItem(props) {
                     className={"form-control form-control-sm " + (formik.errors.englishName ? "is-invalid" : "")}
                     type="text" id="englishName" name="englishName"
                     value={formik.values.englishName} onChange={formik.handleChange}/>
-                <div className="invalid-tooltip is-">
+                <div className="invalid-tooltip">
                     {formik.errors.englishName}
                 </div>
             </div>
