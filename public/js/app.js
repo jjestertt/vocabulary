@@ -2006,7 +2006,7 @@ function Navbar(props) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
             className: "nav-item",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-              className: "nav-link active",
+              className: "nav-link",
               "aria-current": "page",
               href: "#",
               children: "\u0413\u043B\u0430\u0432\u043D\u0430\u044F"
@@ -2024,6 +2024,14 @@ function Navbar(props) {
             })
           })]
         })
+      }), props.isAuth ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        onClick: props.setAuth,
+        className: "btn btn-dark btn-sm",
+        children: "\u0412\u044B\u0439\u0442\u0438"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+        onClick: props.setAuth,
+        className: "btn btn-dark btn-sm",
+        children: "\u0412\u043E\u0439\u0442\u0438"
       })]
     })
   });
@@ -2112,8 +2120,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function AddItem(props) {
+  var addItemWindow = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    className: _AddItem_module_css__WEBPACK_IMPORTED_MODULE_2__.default.AddItem + " " + (props.isAdd ? _AddItem_module_css__WEBPACK_IMPORTED_MODULE_2__.default.active : ""),
+    ref: addItemWindow,
+    className: _AddItem_module_css__WEBPACK_IMPORTED_MODULE_2__.default.AddItem,
+    style: {
+      height: props.isAdd ? addItemWindow.current.scrollHeight + "px" : "0px"
+    },
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h2", {
       className: "mb-3",
       children: "\u041F\u043E\u043F\u043E\u043B\u043D\u0438\u0442\u044C \u0437\u0430\u043F\u0430\u0441"
@@ -2147,6 +2160,7 @@ function AddItem(props) {
         var setSubmitting = _ref.setSubmitting,
             resetForm = _ref.resetForm;
         props.setWordsToServerHandler(values.inputNameRus, values.inputNameEn, setSubmitting);
+        props.toggleAddItemHandler();
         resetForm();
       },
       children: function children(_ref2) {
@@ -2508,6 +2522,7 @@ function Table(props) {
     className: "mb-4",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TableItem_AddItem_AddItem__WEBPACK_IMPORTED_MODULE_2__.default, {
       setWordsToServerHandler: api.setWordsToServerHandler,
+      toggleAddItemHandler: props.toggleAddItemHandler,
       isAdd: props.isAdd
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
       className: "mb-4",
@@ -2582,6 +2597,11 @@ function Layout() {
       isAdd = _useState2[0],
       setIsAdd = _useState2[1];
 
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isAuth = _useState4[0],
+      _setAuth = _useState4[1];
+
   var toggleAddItemHandler = function toggleAddItemHandler() {
     setIsAdd(!isAdd);
   };
@@ -2589,13 +2609,18 @@ function Layout() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__.default, {
       toggleAddItemHandler: toggleAddItemHandler,
-      isAdd: isAdd
+      isAdd: isAdd,
+      isAuth: isAuth,
+      setAuth: function setAuth() {
+        _setAuth(!isAuth);
+      }
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("main", {
       className: "flex-shrink-0",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "container",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_containers_Table_Table__WEBPACK_IMPORTED_MODULE_2__.default, {
-          isAdd: isAdd
+          isAdd: isAdd,
+          toggleAddItemHandler: toggleAddItemHandler
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_Footer_Footer__WEBPACK_IMPORTED_MODULE_3__.default, {})]
@@ -7086,7 +7111,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "html, body, #root {\n    height: 100%;\n}\n*{\n    box-sizing: border-box;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "html, body, #root {\n    height: 100%;\n}\nhtml {\n    overflow-y: scroll;\n}\n*{\n    box-sizing: border-box;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7134,11 +7159,10 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._2MD6l1mcsVIq6iTrHV9J2d{\n    display: none;\n}\n._2MD6l1mcsVIq6iTrHV9J2d._1ulq38pZ-G8pDSFilbC8Jf{\n    display: block;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._2MD6l1mcsVIq6iTrHV9J2d{\n    overflow: hidden;\n    transition: height ease-out .5s;\n}\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	"AddItem": "_2MD6l1mcsVIq6iTrHV9J2d",
-	"active": "_1ulq38pZ-G8pDSFilbC8Jf"
+	"AddItem": "_2MD6l1mcsVIq6iTrHV9J2d"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

@@ -5,6 +5,7 @@ import Footer from "../../components/Footer/Footer";
 
 export default function Layout() {
     const [isAdd, setIsAdd] = useState(false);
+    const [isAuth, setAuth] = useState(false);
 
     const toggleAddItemHandler = () => {
         setIsAdd(!isAdd);
@@ -12,10 +13,11 @@ export default function Layout() {
 
     return (
         <>
-            <Navbar toggleAddItemHandler={toggleAddItemHandler} isAdd={isAdd} />
+            <Navbar toggleAddItemHandler={toggleAddItemHandler} isAdd={isAdd}
+                    isAuth={isAuth} setAuth={()=>{setAuth(!isAuth)}}/>
             <main className="flex-shrink-0">
                 <div className="container">
-                    <Table isAdd={isAdd}
+                    <Table isAdd={isAdd} toggleAddItemHandler={toggleAddItemHandler}
                     />
                 </div>
             </main>

@@ -1,12 +1,17 @@
-import React from "react";
+import React, {useRef} from "react";
 import {Formik} from "formik";
 import style from "./AddItem.module.css";
 
 export default function AddItem(props) {
-
+    const addItemWindow = useRef();
 
     return (
-        <div className={style.AddItem + " " + (props.isAdd ? style.active : "")}>
+        <div ref={addItemWindow} className={style.AddItem}
+             style={{
+                 height: (props.isAdd
+                     ? addItemWindow.current.scrollHeight + "px"
+                     : "0px")
+             }}>
             <h2 className="mb-3">Пополнить запас</h2>
             <Formik
                 initialValues={{
@@ -34,6 +39,7 @@ export default function AddItem(props) {
                     }}
                 onSubmit={(values, {setSubmitting, resetForm}) => {
                     props.setWordsToServerHandler(values.inputNameRus, values.inputNameEn, setSubmitting);
+                    props.toggleAddItemHandler();
                     resetForm();
                 }}
             >
@@ -79,12 +85,10 @@ export default function AddItem(props) {
                                     disabled={isSubmitting}>Отправить
                             </button>
                         </form>
-
                     );
                 }
                 }
             </Formik>
         </div>
-
     );
 }

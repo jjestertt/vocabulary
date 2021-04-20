@@ -85,6 +85,7 @@ export default function Table(props) {
     return (
         <div className="mb-4">
             <AddItem setWordsToServerHandler={api.setWordsToServerHandler}
+                     toggleAddItemHandler={props.toggleAddItemHandler}
                      isAdd={props.isAdd}/>
             <h1 className="mb-4">Словарный запас</h1>
             {isFetch
