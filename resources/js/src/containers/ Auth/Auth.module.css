@@ -1,0 +1,9 @@
+.Auth {
+
+}
+.Auth .form{
+    max-width: 380px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 6px;
+}

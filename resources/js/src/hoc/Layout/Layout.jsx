@@ -3,6 +3,10 @@ import Navbar from "../../components/Navbar/Navbar";
 import Table from "../../containers/Table/Table";
 import Footer from "../../components/Footer/Footer";
 import axios from "axios";
+import Auth from "../../containers/ Auth/Auth";
+import Register from "../../containers/ Auth/Register/Register";
+import {Warning} from "postcss";
+import {Switch, Route} from "react-router-dom"
 
 export default function Layout() {
     const [words, setWords] = useState(null);
@@ -89,13 +93,19 @@ export default function Layout() {
                     searchWordHandler={api.searchWordHandler}
                     getWordsFromServerHandler={api.getWordsFromServerHandler}
             />
-            <main className="flex-shrink-0">
-                <div className="container">
-                    <Table isAdd={isAdd} toggleAddItemHandler={toggleAddItemHandler}
-                           words={words} setWords={setWords}
-                           isFetch={isFetch} setIsFetch={setIsFetch}
-                           api={api}
-                    />
+            <main className="flex-shrink-0 flex-grow-1">
+                <div className="container h-100">
+                    <Switch>
+                        <Route exact={true} path="/" render={() => (
+                            <Table isAdd={isAdd} toggleAddItemHandler={toggleAddItemHandler}
+                                   words={words} setWords={setWords}
+                                   isFetch={isFetch} setIsFetch={setIsFetch}
+                                   api={api}
+                            />
+                        )}/>
+                        <Route path="/auth" render={()=> <Auth/> }/>
+                        <Route path="/register" render={()=> <Register/>}/>
+                    </Switch>
                 </div>
             </main>
             <Footer/>

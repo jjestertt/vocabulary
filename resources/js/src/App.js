@@ -4,8 +4,13 @@ import ReactDOM from 'react-dom';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Layout from "./hoc/Layout/Layout";
+import {BrowserRouter} from "react-router-dom";
 
-const App = () => <Layout />
+const App = () => (
+  <BrowserRouter>
+      <Layout />
+  </BrowserRouter>
+);
 
 export default App;
 

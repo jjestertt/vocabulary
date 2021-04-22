@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "../UI/Search/Search";
+import {NavLink} from "react-router-dom";
 
 export default function Navbar(props) {
 
@@ -32,8 +33,8 @@ export default function Navbar(props) {
                         searchWordHandler={props.searchWordHandler}
                 />
                 {props.isAuth
-                    ? <button onClick={props.setAuth} className="btn btn-dark btn-sm">Выйти</button>
-                    : <button onClick={props.setAuth} className="btn btn-dark btn-sm">Войти</button>
+                    ? <button  className="btn btn-dark btn-sm">Выйти</button>
+                    : <NavLink to='/auth'  className="btn btn-dark btn-sm">Войти</NavLink>
                 }
             </div>
         </nav>
