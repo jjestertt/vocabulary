@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 use App\Http\Controllers\WordsController;
 Route::get('/words', [WordsController::class, 'words']);
 Route::get('/words/{id}', [WordsController::class, 'wordsById']);
@@ -28,3 +24,7 @@ Route::put('/words/{id}', [WordsController::class, 'wordsUpdate']);
 
 Route::get('/search', [WordsController::class, 'searchByWordEmpty']);
 Route::get('/search/{name}', [WordsController::class, 'searchByWord']);
+
+Route::get('/user', [\App\Http\Controllers\AuthController::class, 'user']);
+Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
+Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
