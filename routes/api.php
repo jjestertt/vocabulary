@@ -25,6 +25,10 @@ Route::put('/words/{id}', [WordsController::class, 'wordsUpdate']);
 Route::get('/search', [WordsController::class, 'searchByWordEmpty']);
 Route::get('/search/{name}', [WordsController::class, 'searchByWord']);
 
-Route::get('/user', [\App\Http\Controllers\AuthController::class, 'user']);
 Route::post('/register', [\App\Http\Controllers\AuthController::class, 'register']);
 Route::post('/login', [\App\Http\Controllers\AuthController::class, 'login']);
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/user', [\App\Http\Controllers\AuthController::class, 'user']);
+    Route::post('/logout', [\App\Http\Controllers\AuthController::class, 'logout']);
+});

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -26,10 +27,22 @@ class AuthController extends Controller
         }
 
         $user = Auth::user();
-        return response()->json($user , 200);
+
+        $token = $user->createToken('token')->plainTextToken;
+
+        $cookie = cookie('jwt', $token, 60);
+
+        return response()->json(['message' => $token] , 200)
+            ->withCookie($cookie);
     }
 
     public function user(){
-        return "Authenticated user";
+        return response()->json(Auth::user(), 200);
+    }
+
+    public function logout(){
+        $cookie = Cookie::forget('jwt');
+        return response()->json(['message' => 'Success'] , 200)
+            ->withCookie($cookie);
     }
 }
