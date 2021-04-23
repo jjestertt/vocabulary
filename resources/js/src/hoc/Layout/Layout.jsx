@@ -3,17 +3,19 @@ import Navbar from "../../components/Navbar/Navbar";
 import Table from "../../containers/Table/Table";
 import Footer from "../../components/Footer/Footer";
 import axios from "axios";
-import Auth from "../../containers/ Auth/Auth";
+import Login from "../../containers/ Auth/Login";
 import Register from "../../containers/ Auth/Register/Register";
-import {Warning} from "postcss";
 import {Switch, Route} from "react-router-dom"
+import Preloader from "../../components/Preloader/Preloader";
 
 export default function Layout() {
     const [words, setWords] = useState(null);
     const [isFetch, setIsFetch] = useState(true);
     const [isAdd, setIsAdd] = useState(false);
-    const [isAuth, setAuth] = useState(false);
     const [isSearch, toggleSearch] = useState(false);
+
+    const [isAuth, setAuth] = useState(false);
+    const [user, setUser] = useState({});
 
     let api = {
         searchWordHandler: async (query) => {
@@ -70,21 +72,61 @@ export default function Layout() {
                 }
             );
         },
+        getUserHandler: async () => {
+            try {
+                const response = await axios.get("/api/user");
+                const data = response.data;
+
+                setUser({
+                    isAuth: true,
+                    id: data.id,
+                    name: data.name,
+                    email: data.email,
+                    createdAt: data.updated_at
+                });
+            } catch (e) {
+                setUser({
+                    isAuth: false,
+                });
+            }
+        },
+
+        loginHandler: async (email, password, rememberMe) => {
+            await axios.post("/api/login", {email, password});
+            await api.getUserHandler();
+        },
+        logoutHandler: async () => {
+           const r = await axios.post("/api/logout/");
+            setUser({
+                isAuth: false,
+            });
+        }
     }
 
     const toggleAddItemHandler = () => {
         setIsAdd(!isAdd);
     }
 
+    const initialize = async () => {
+        setIsFetch(true);
+        await api.getUserHandler();
+        await api.getWordsFromServerHandler();
+        setIsFetch(false);
+    }
+
     useEffect(() => {
-        api.getWordsFromServerHandler();
+        initialize();
     }, []);
+
+    if (isFetch) {
+        return <Preloader />
+    }
 
     return (
         <>
             <Navbar toggleAddItemHandler={toggleAddItemHandler}
                     isAdd={isAdd}
-                    isAuth={isAuth}
+                    isAuth={user.isAuth}
                     setAuth={() => {
                         setAuth(!isAuth)
                     }}
@@ -92,6 +134,7 @@ export default function Layout() {
                     toggleSearch={toggleSearch}
                     searchWordHandler={api.searchWordHandler}
                     getWordsFromServerHandler={api.getWordsFromServerHandler}
+                    logoutHandler={api.logoutHandler}
             />
             <main className="flex-shrink-0 flex-grow-1">
                 <div className="container h-100">
@@ -103,8 +146,8 @@ export default function Layout() {
                                    api={api}
                             />
                         )}/>
-                        <Route path="/auth" render={()=> <Auth/> }/>
-                        <Route path="/register" render={()=> <Register/>}/>
+                        <Route path="/login" render={() => <Login loginHandler={api.loginHandler} isAuth={user.isAuth}/>}/>
+                        <Route path="/register" render={() => <Register isAuth={user.isAuth} />}/>
                     </Switch>
                 </div>
             </main>

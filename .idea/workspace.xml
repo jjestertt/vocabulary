@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c22396c1-cc6f-4741-8051-4098c3cad182" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Auth.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Auth.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Register/Register.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Register/Register.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vocabulary.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vocabulary.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/components/UI/Search/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/UI/Search/Search.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Auth.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Auth.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Login.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Register/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/containers/ Auth/Register/Register.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/src/hoc/Layout/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/hoc/Layout/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +75,8 @@
       <workItem from="1618873717746" duration="12307000" />
       <workItem from="1618936585859" duration="4581000" />
       <workItem from="1619013863529" duration="10480000" />
-      <workItem from="1619114661254" duration="5797000" />
+      <workItem from="1619114661254" duration="5923000" />
+      <workItem from="1619174808245" duration="5465000" />
     </task>
     <servers />
   </component>

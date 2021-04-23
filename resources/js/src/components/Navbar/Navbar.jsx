@@ -7,17 +7,15 @@ export default function Navbar(props) {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
             <div className="container-fluid">
-                <a onClick={e => {
-                        e.preventDefault();
+                <NavLink to="/" onClick={e => {
                         props.getWordsFromServerHandler();
-                    }} className="navbar-brand" href="#">Словарик</a>
+                    }} className="navbar-brand" href="#">Словарик</NavLink>
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a onClick={e => {
-                                e.preventDefault();
+                            <NavLink to="/" onClick={e => {
                                 props.getWordsFromServerHandler();
-                            }} className="nav-link" aria-current="page" href="#">Главная</a>
+                            }} className="nav-link" aria-current="page" href="#">Главная</NavLink>
                         </li>
                         <li className="nav-item">
                             <a onClick={(e) => {
@@ -33,8 +31,8 @@ export default function Navbar(props) {
                         searchWordHandler={props.searchWordHandler}
                 />
                 {props.isAuth
-                    ? <button  className="btn btn-dark btn-sm">Выйти</button>
-                    : <NavLink to='/auth'  className="btn btn-dark btn-sm">Войти</NavLink>
+                    ? <button onClick={props.logoutHandler}  className="btn btn-dark btn-sm">Выйти</button>
+                    : <NavLink to='/login'  className="btn btn-dark btn-sm">Войти</NavLink>
                 }
             </div>
         </nav>
