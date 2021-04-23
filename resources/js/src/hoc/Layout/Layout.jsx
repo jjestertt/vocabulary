@@ -109,8 +109,8 @@ export default function Layout() {
 
     const initialize = async () => {
         setIsFetch(true);
-        await api.getUserHandler();
-        await api.getWordsFromServerHandler();
+        const getUser =  await api.getUserHandler();
+        const getWords = await api.getWordsFromServerHandler();
         setIsFetch(false);
     }
 

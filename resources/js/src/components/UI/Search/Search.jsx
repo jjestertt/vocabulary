@@ -31,9 +31,7 @@ export default function Search(props) {
 
     return (
         <>
-            <form onSubmit={searchInput.handleSubmit} className="position-relative" onBlur={()=>{
-                props.toggleSearch(false);
-            }}>
+            <form onSubmit={searchInput.handleSubmit} className="position-relative">
                 <div className={"mr-1 " + style.input + " " + (props.isSearch ? style.active : "")}>
                     <input placeholder="Введите слово"
                         className={"form-control form-control-sm " + (searchInput.errors.query ? "is-invalid" : "")}

@@ -57,8 +57,8 @@ export default function EditItem(props) {
             <div className="col-2 text-right">
                 <i className={"fa fa-undo-alt mr-2 " + style.undo} onClick={() => {
                     props.changeEditHandler(props.uniqKey, false)
-                }}></i>
-                <i className={"fa fa-check-square mr-2 " + style.check} onClick={formik.handleSubmit} ></i>
+                }}/>
+                <i className={"fa fa-check-square mr-2 " + style.check} onClick={formik.handleSubmit} />
             </div>
         </div>
     );
