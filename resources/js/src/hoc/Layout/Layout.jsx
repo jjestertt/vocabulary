@@ -92,7 +92,7 @@ export default function Layout() {
         },
 
         loginHandler: async (email, password, rememberMe) => {
-            await axios.post("/api/login", {email, password});
+            await axios.post("/api/login", {email, password, rememberMe});
             await api.getUserHandler();
         },
         logoutHandler: async () => {

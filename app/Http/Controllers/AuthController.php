@@ -8,10 +8,23 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Symfony\Component\HttpFoundation\Response;
+use Validator;
 
 class AuthController extends Controller
 {
     public function register(Request $request){
+        $rules = [
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|min:3|max:50|email',
+            'password' => 'required|min:3|max:50'
+        ];
+
+        $validator = Validator::make($request->only('name', 'email','password'), $rules);
+
+        if($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
+
           $user = User::create([
                 'name' => $request->input('name'),
                 'email' => $request->input('email'),
@@ -22,6 +35,17 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
+        $rules = [
+            'email' => 'required|min:3|max:50|email',
+            'password' => 'required|min:3|max:50'
+        ];
+
+        $validator = Validator::make($request->only('email','password'), $rules);
+
+        if($validator->fails()){
+            return response()->json($validator->errors(), 400);
+        }
+
         if(!Auth::attempt($request->only('email', 'password'))){
             return response()->json(['message' => 'Invalid credentials'], Response::HTTP_UNAUTHORIZED);
         }
@@ -30,9 +54,15 @@ class AuthController extends Controller
 
         $token = $user->createToken('token')->plainTextToken;
 
-        $cookie = cookie('jwt', $token, 60);
 
-        return response()->json(["user" => $user, 'token' => $token] , 200)
+        $expiresIn = 60;
+        if($request->input('rememberMe')){
+            $expiresIn = 60 * 24 * 7; //one week;
+        }
+
+        $cookie = cookie('jwt', $token, $expiresIn);
+
+        return response()->json($user, 200)
             ->withCookie($cookie);
     }
 

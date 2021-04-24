@@ -3181,7 +3181,8 @@ function Layout() {
                 _context3.next = 2;
                 return axios__WEBPACK_IMPORTED_MODULE_5___default().post("/api/login", {
                   email: email,
-                  password: password
+                  password: password,
+                  rememberMe: rememberMe
                 });
 
               case 2:
