@@ -3,9 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="c22396c1-cc6f-4741-8051-4098c3cad182" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/.idea/front.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/src/App.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/src/reportWebVitals.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/vocabulary/src/setupTests.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/src/hoc/Layout/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/hoc/Layout/Layout.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/Navbar/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/components/UI/Search/Search.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/UI/SearchForm/SearchForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/src/components/UI/Search/Search.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/UI/SearchForm/SearchForm.module.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +60,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js/src/containers/ Auth/Register" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.composer" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/resources/js/src/containers/ Auth/Register" />
       <recent name="$PROJECT_DIR$/resources/js/src/components/TableItem/EditItem" />
     </key>
@@ -69,6 +96,8 @@
       <workItem from="1619013863529" duration="10480000" />
       <workItem from="1619114661254" duration="5923000" />
       <workItem from="1619174808245" duration="12541000" />
+      <workItem from="1619283149136" duration="1029000" />
+      <workItem from="1619284231408" duration="1284000" />
     </task>
     <servers />
   </component>

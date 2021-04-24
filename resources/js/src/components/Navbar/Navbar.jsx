@@ -1,5 +1,5 @@
 import React from "react";
-import Search from "../UI/Search/Search";
+import SearchForm from "../UI/SearchForm/SearchForm";
 import {NavLink} from "react-router-dom";
 
 export default function Navbar(props) {
@@ -27,8 +27,8 @@ export default function Navbar(props) {
                         </li>
                     </ul>
                 </div>
-                <Search isSearch={props.isSearch} toggleSearch={props.toggleSearch}
-                        searchWordHandler={props.searchWordHandler}
+                <SearchForm isSearch={props.isSearch} toggleSearch={props.toggleSearch}
+                            searchWordHandler={props.searchWordHandler}
                 />
                 {props.isAuth
                     ? <button onClick={props.logoutHandler}  className="btn btn-dark btn-sm">Выйти</button>
