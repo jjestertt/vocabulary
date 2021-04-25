@@ -2555,18 +2555,21 @@ function SearchForm(props) {
       query: ""
     },
     onSubmit: function () {
-      var _onSubmit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(values) {
+      var _onSubmit = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(values, _ref) {
+        var resetForm;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                resetForm = _ref.resetForm;
+                _context.next = 3;
                 return props.searchWordHandler(values.query);
 
-              case 2:
+              case 3:
+                resetForm();
                 goSearch.push('/search');
 
-              case 3:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2574,7 +2577,7 @@ function SearchForm(props) {
         }, _callee);
       }));
 
-      function onSubmit(_x) {
+      function onSubmit(_x, _x2) {
         return _onSubmit.apply(this, arguments);
       }
 
@@ -2595,7 +2598,7 @@ function SearchForm(props) {
         required: true,
         id: "query",
         name: "query",
-        value: searchForm.values.englishName,
+        value: searchForm.values.query,
         onChange: searchForm.handleChange
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
         type: "submit",
@@ -2868,11 +2871,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ SearchResults)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_TableItem_TableItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/TableItem/TableItem */ "./resources/js/src/components/TableItem/TableItem.jsx");
-/* harmony import */ var _components_UI_Preloader_Preloader__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/UI/Preloader/Preloader */ "./resources/js/src/components/UI/Preloader/Preloader.jsx");
-/* harmony import */ var _components_TableItem_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/TableItem/EditItem/EditItem */ "./resources/js/src/components/TableItem/EditItem/EditItem.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _components_TableItem_TableItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/TableItem/TableItem */ "./resources/js/src/components/TableItem/TableItem.jsx");
+/* harmony import */ var _components_UI_Preloader_Preloader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/UI/Preloader/Preloader */ "./resources/js/src/components/UI/Preloader/Preloader.jsx");
+/* harmony import */ var _components_TableItem_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/TableItem/EditItem/EditItem */ "./resources/js/src/components/TableItem/EditItem/EditItem.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -2886,20 +2898,31 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-function SearchResults(props) {
-  if (props.isFetch) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_UI_Preloader_Preloader__WEBPACK_IMPORTED_MODULE_2__.default, {});
-  }
 
+
+var renderValidatorPage = function renderValidatorPage(message) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+      className: "mb-4",
+      children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u043F\u043E\u0438\u0441\u043A\u0430"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+      children: message
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+      to: "/",
+      children: "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043D\u0430 \u0433\u043B\u0430\u0432\u043D\u0443\u044E"
+    })]
+  });
+};
+
+function SearchResults(props) {
+  //Проверка на отсутствие данных
   if (!props.searchResults) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
-        className: "mb-4",
-        children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u043F\u043E\u0438\u0441\u043A\u0430"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-        children: "\u041F\u043E\u0436\u0430\u043B\u0443\u0439\u0441\u0442\u0430 \u0432\u0432\u0435\u0434\u0438\u0442\u0435 \u0437\u0430\u043F\u0440\u043E\u0441"
-      })]
-    });
+    return renderValidatorPage('Пожалуйста введите запрос');
+  } //Обработчик ошибок
+
+
+  if (!!props.searchResults.errorMessage) {
+    return renderValidatorPage(props.searchResults.errorMessage);
   }
 
   var changeEditHandler = function changeEditHandler(id, prop) {
@@ -2913,18 +2936,85 @@ function SearchResults(props) {
       return result;
     });
     props.setSearchResults(tempResults);
-  };
+  }; //Функция которая обновляет состояние компоненты поиска после изменения слова.
+
+
+  var onEditWordsToServer = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(russianName, englishName, uniqKey) {
+      var searchResults;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return props.api.editWordToServerHandler(russianName, englishName, uniqKey);
+
+            case 2:
+              searchResults = props.searchResults.map(function (item) {
+                if (item.id === uniqKey) {
+                  return {
+                    id: item.id,
+                    name: russianName,
+                    name_en: englishName
+                  };
+                }
+
+                return item;
+              });
+              props.setSearchResults(searchResults);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function onEditWordsToServer(_x, _x2, _x3) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var onDelete = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(id) {
+      var searchResults;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return props.api.deleteItemHandler(id);
+
+            case 2:
+              searchResults = props.searchResults.filter(function (item) {
+                return item.id !== id;
+              });
+              props.setSearchResults(searchResults);
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function onDelete(_x4) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
 
   var showTableItem = props.searchResults.map(function (item, index) {
-    return item.isEdit ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_TableItem_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_3__.default, {
+    return item.isEdit ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_TableItem_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_4__.default, {
       changeEditHandler: changeEditHandler,
-      editWordToServerHandler: props.api.editWordToServerHandler,
+      editWordToServerHandler: onEditWordsToServer,
       uniqKey: item.id,
       index: index + 1,
       russianName: item.name,
       englishName: item.name_en
-    }, item.id) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_TableItem_TableItem__WEBPACK_IMPORTED_MODULE_1__.default, {
-      deleteItemHandler: props.api.deleteItemHandler,
+    }, item.id) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_TableItem_TableItem__WEBPACK_IMPORTED_MODULE_2__.default, {
+      deleteItemHandler: onDelete,
       changeEditHandler: changeEditHandler,
       uniqKey: item.id,
       index: index + 1,
@@ -2932,36 +3022,36 @@ function SearchResults(props) {
       englishName: item.name_en
     }, item.id);
   });
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     return function () {
       props.setSearchResults(null);
     };
-  });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "pt-2 pb-5 mb-2",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
       className: "mb-4",
       children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u043F\u043E\u0438\u0441\u043A\u0430"
-    }), props.isFetch ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_UI_Preloader_Preloader__WEBPACK_IMPORTED_MODULE_2__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    }), props.isFetch ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_UI_Preloader_Preloader__WEBPACK_IMPORTED_MODULE_3__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "mt-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "row pt-3 pb-3 pl-2 pr-2 border-top border-bottom",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "col-1",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
             children: "#"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "col-4",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
             children: "\u0421\u043B\u043E\u0432\u043E \u043D\u0430 \u0440\u0443\u0441\u0441\u043A\u043E\u043C"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "col-4",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
             children: "\u0421\u043B\u043E\u0432\u043E \u043D\u0430 \u0410\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u043C"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "col-3"
         })]
       }), showTableItem]
@@ -3163,40 +3253,55 @@ function Layout() {
   var api = {
     searchWordHandler: function () {
       var _searchWordHandler = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(query) {
-        var response;
+        var response, errorNumber;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
                 setIsFetch(true);
-                _context.prev = 1;
-                _context.next = 4;
+                setSearchResults(null);
+                _context.prev = 2;
+                _context.next = 5;
                 return axios__WEBPACK_IMPORTED_MODULE_2___default().get("/api/search/".concat(query));
 
-              case 4:
+              case 5:
                 response = _context.sent;
 
                 if (!response.data.error) {
                   //Получаем заного данные с сервера
                   setSearchResults(response.data);
-                  setIsFetch(false);
                 }
 
-                _context.next = 12;
+                _context.next = 13;
                 break;
 
-              case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](1);
-                console.log(_context.t0);
-                setIsFetch(false);
+              case 9:
+                _context.prev = 9;
+                _context.t0 = _context["catch"](2);
+                //Вытаскиваем код ошибки
+                errorNumber = _context.t0.message.substr(_context.t0.message.length - 3);
 
-              case 12:
+                if (errorNumber === "404") {
+                  setSearchResults({
+                    errorMessage: "По вашему запросу ничего не найдено"
+                  });
+                } else {
+                  setSearchResults({
+                    errorMessage: "Системная ошибка поиска"
+                  });
+                }
+
+              case 13:
+                _context.prev = 13;
+                setIsFetch(false);
+                return _context.finish(13);
+
+              case 16:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 8]]);
+        }, _callee, null, [[2, 9, 13, 16]]);
       }));
 
       function searchWordHandler(_x) {

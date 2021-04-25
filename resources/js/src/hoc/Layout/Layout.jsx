@@ -24,15 +24,22 @@ export default function Layout() {
     let api = {
         searchWordHandler: async (query) => {
             setIsFetch(true);
+            setSearchResults(null);
             try {
                 let response = await axios.get(`/api/search/${query}`);
                 if (!response.data.error) {
                     //Получаем заного данные с сервера
                     setSearchResults(response.data);
-                    setIsFetch(false);
                 }
             } catch (e) {
-                console.log(e)
+                //Вытаскиваем код ошибки
+                const errorNumber = e.message.substr(e.message.length - 3)
+                if (errorNumber === "404"){
+                    setSearchResults({errorMessage: "По вашему запросу ничего не найдено"});
+                } else {
+                    setSearchResults({errorMessage: "Системная ошибка поиска"});
+                }
+            } finally {
                 setIsFetch(false);
             }
         },
@@ -163,7 +170,7 @@ export default function Layout() {
                             <SearchResults isAdd={isAdd} toggleAddItemHandler={toggleAddItemHandler}
                                            searchResults={searchResults} setSearchResults={setSearchResults}
                                            isFetch={isFetch} setIsFetch={setIsFetch}
-                                           api={api}/>
+                                           api={api} />
                         )}/>
                         <Route path="/login"
                                render={() => <Login loginHandler={api.loginHandler} isAuth={user.isAuth}/>}/>

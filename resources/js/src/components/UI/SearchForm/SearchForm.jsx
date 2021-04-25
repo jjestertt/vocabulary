@@ -11,8 +11,9 @@ export default function SearchForm(props) {
             query: "",
         },
 
-        onSubmit: async values => {
+        onSubmit: async (values , {resetForm})=> {
             await props.searchWordHandler(values.query);
+            resetForm();
             goSearch.push('/search');
         }
     });
@@ -26,7 +27,7 @@ export default function SearchForm(props) {
                 <label htmlFor="search">Search for stuff</label>
                 <input type="text" placeholder="Поиск..." required
                        id="query" name="query"
-                       value={searchForm.values.englishName} onChange={searchForm.handleChange}
+                       value={searchForm.values.query} onChange={searchForm.handleChange}
                 />
                 <button type="submit"><i className="fa fa-search" /></button>
             </form>
