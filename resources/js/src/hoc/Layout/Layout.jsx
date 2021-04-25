@@ -141,6 +141,7 @@ export default function Layout() {
             <Navbar toggleAddItemHandler={toggleAddItemHandler}
                     isAdd={isAdd}
                     isAuth={user.isAuth}
+                    userName ={user.name}
                     setAuth={() => {
                         setAuth(!isAuth)
                     }}

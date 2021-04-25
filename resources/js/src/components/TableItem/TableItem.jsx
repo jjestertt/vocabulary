@@ -20,8 +20,9 @@ export default function TableItem(props) {
                 <span>{props.englishName}</span>
             </div>
             <div className="col-2 text-right">
-                <i className={"fa fa-edit mr-2 " + style.edit} onClick={onChangeEdit} ></i>
-                <i className={"fa fa-times mr-2 " + style.times} onClick={onDelete}></i>
+                <i className={"fa fa-thumbs-up mr-2 " + style.thumbsUp} onClick={onDelete}/>
+                <i className={"fa fa-edit mr-2 " + style.edit} onClick={onChangeEdit} />
+                <i className={"fa fa-times mr-2 " + style.times} onClick={onDelete}/>
             </div>
         </div>
     );

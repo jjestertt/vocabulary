@@ -2117,9 +2117,6 @@ function Navbar(props) {
       className: "container-fluid",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         to: "/",
-        onClick: function onClick(e) {
-          props.getWordsFromServerHandler();
-        },
         className: "navbar-brand",
         href: "#",
         children: "\u0421\u043B\u043E\u0432\u0430\u0440\u0438\u043A"
@@ -2132,9 +2129,6 @@ function Navbar(props) {
             className: "nav-item",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
               to: "/",
-              onClick: function onClick(e) {
-                props.getWordsFromServerHandler();
-              },
               className: "nav-link",
               "aria-current": "page",
               href: "#",
@@ -2157,10 +2151,38 @@ function Navbar(props) {
         isSearch: props.isSearch,
         toggleSearch: props.toggleSearch,
         searchWordHandler: props.searchWordHandler
-      }), props.isAuth ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-        onClick: props.logoutHandler,
-        className: "btn btn-warning btn-sm",
-        children: "\u0412\u044B\u0439\u0442\u0438"
+      }), props.isAuth ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "btn-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+          type: "button",
+          className: "btn btn-warning btn-sm dropdown-toggle",
+          "data-bs-toggle": "dropdown",
+          "aria-expanded": "false",
+          children: props.userName
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+          className: "dropdown-menu dropdown-menu-right dropdown-menu-dark",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+              to: "/",
+              className: "dropdown-item",
+              children: "\u0412 \u043F\u0440\u043E\u0444\u0438\u043B\u044C"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {
+              className: "dropdown-divider"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+              onClick: function onClick(e) {
+                e.preventDefault();
+                props.logoutHandler();
+              },
+              className: "dropdown-item",
+              href: "#",
+              children: "\u0412\u044B\u0439\u0442\u0438"
+            })
+          })]
+        })]
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
         to: "/login",
         className: "btn btn-warning btn-sm",
@@ -2445,6 +2467,9 @@ function TableItem(props) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "col-2 text-right",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
+        className: "fa fa-thumbs-up mr-2 " + _TableItem_module_css__WEBPACK_IMPORTED_MODULE_1__.default.thumbsUp,
+        onClick: onDelete
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
         className: "fa fa-edit mr-2 " + _TableItem_module_css__WEBPACK_IMPORTED_MODULE_1__.default.edit,
         onClick: onChangeEdit
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
@@ -2877,8 +2902,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_TableItem_TableItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/TableItem/TableItem */ "./resources/js/src/components/TableItem/TableItem.jsx");
 /* harmony import */ var _components_UI_Preloader_Preloader__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/UI/Preloader/Preloader */ "./resources/js/src/components/UI/Preloader/Preloader.jsx");
 /* harmony import */ var _components_TableItem_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/TableItem/EditItem/EditItem */ "./resources/js/src/components/TableItem/EditItem/EditItem.jsx");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _components_UI_SearchForm_SearchForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/UI/SearchForm/SearchForm */ "./resources/js/src/components/UI/SearchForm/SearchForm.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -2900,14 +2926,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
+
 var renderValidatorPage = function renderValidatorPage(message) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
       className: "mb-4",
       children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u043F\u043E\u0438\u0441\u043A\u0430"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("p", {
       children: message
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
       to: "/",
       children: "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u043D\u0430 \u0433\u043B\u0430\u0432\u043D\u0443\u044E"
     })]
@@ -3006,14 +3033,14 @@ function SearchResults(props) {
   }();
 
   var showTableItem = props.searchResults.map(function (item, index) {
-    return item.isEdit ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_TableItem_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_4__.default, {
+    return item.isEdit ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TableItem_EditItem_EditItem__WEBPACK_IMPORTED_MODULE_4__.default, {
       changeEditHandler: changeEditHandler,
       editWordToServerHandler: onEditWordsToServer,
       uniqKey: item.id,
       index: index + 1,
       russianName: item.name,
       englishName: item.name_en
-    }, item.id) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_TableItem_TableItem__WEBPACK_IMPORTED_MODULE_2__.default, {
+    }, item.id) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TableItem_TableItem__WEBPACK_IMPORTED_MODULE_2__.default, {
       deleteItemHandler: onDelete,
       changeEditHandler: changeEditHandler,
       uniqKey: item.id,
@@ -3027,31 +3054,31 @@ function SearchResults(props) {
       props.setSearchResults(null);
     };
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
     className: "pt-2 pb-5 mb-2",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
       className: "mb-4",
       children: "\u0420\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u044B \u043F\u043E\u0438\u0441\u043A\u0430"
-    }), props.isFetch ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_UI_Preloader_Preloader__WEBPACK_IMPORTED_MODULE_3__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), props.isFetch ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_UI_Preloader_Preloader__WEBPACK_IMPORTED_MODULE_3__.default, {}) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "mt-4",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "row pt-3 pb-3 pl-2 pr-2 border-top border-bottom",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "col-1",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("b", {
             children: "#"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "col-4",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("b", {
             children: "\u0421\u043B\u043E\u0432\u043E \u043D\u0430 \u0440\u0443\u0441\u0441\u043A\u043E\u043C"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "col-4",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("b", {
             children: "\u0421\u043B\u043E\u0432\u043E \u043D\u0430 \u0410\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u043C"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "col-3"
         })]
       }), showTableItem]
@@ -3507,6 +3534,7 @@ function Layout() {
       toggleAddItemHandler: toggleAddItemHandler,
       isAdd: isAdd,
       isAuth: user.isAuth,
+      userName: user.name,
       setAuth: function setAuth() {
         _setAuth(!isAuth);
       },
@@ -8121,12 +8149,13 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "._99d_NklcJM9eZTI3bJiZz{\n\n}\n._32JEW9bp11BzhhglScTA1G, ._3j8tLoHXSPblkfYzyDwoaL{\n    cursor: pointer;\n    opacity: 0.7;\n    transition: opacity 1s, color .3s;\n}\n\n._99d_NklcJM9eZTI3bJiZz:hover ._32JEW9bp11BzhhglScTA1G, ._99d_NklcJM9eZTI3bJiZz:hover ._3j8tLoHXSPblkfYzyDwoaL{\n    opacity: 1;\n\n}\n\n._99d_NklcJM9eZTI3bJiZz:hover ._3j8tLoHXSPblkfYzyDwoaL{\n    color: #dc3545;\n}\n\n._99d_NklcJM9eZTI3bJiZz:hover ._32JEW9bp11BzhhglScTA1G{\n    color: #007bff;\n}\n._3kCEG-vTX_vhPjoEcKVfml{\n    cursor: pointer;\n    color:#198754;\n}\n.z9V7qtbkwnMqskt0spxZA{\n    cursor: pointer;\n    color:#0d6efd;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "._99d_NklcJM9eZTI3bJiZz{\n\n}\n._32JEW9bp11BzhhglScTA1G, ._3j8tLoHXSPblkfYzyDwoaL, ._1xLvB-QmGLp4RiyY28n76R{\n    cursor: pointer;\n    opacity: 0.7;\n    transition: opacity 1s, color .3s;\n}\n\n._99d_NklcJM9eZTI3bJiZz:hover ._32JEW9bp11BzhhglScTA1G, ._99d_NklcJM9eZTI3bJiZz:hover ._3j8tLoHXSPblkfYzyDwoaL, ._99d_NklcJM9eZTI3bJiZz:hover ._1xLvB-QmGLp4RiyY28n76R{\n    opacity: 1;\n\n}\n\n._99d_NklcJM9eZTI3bJiZz:hover ._3j8tLoHXSPblkfYzyDwoaL{\n    color: #dc3545;\n}\n\n._99d_NklcJM9eZTI3bJiZz:hover ._32JEW9bp11BzhhglScTA1G{\n    color: #007bff;\n}\n\n._99d_NklcJM9eZTI3bJiZz:hover ._1xLvB-QmGLp4RiyY28n76R{\n    color: #28a745;\n}\n\n._3kCEG-vTX_vhPjoEcKVfml{\n    cursor: pointer;\n    color:#198754;\n}\n.z9V7qtbkwnMqskt0spxZA{\n    cursor: pointer;\n    color:#0d6efd;\n}\n", ""]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"row": "_99d_NklcJM9eZTI3bJiZz",
 	"edit": "_32JEW9bp11BzhhglScTA1G",
 	"times": "_3j8tLoHXSPblkfYzyDwoaL",
+	"thumbsUp": "_1xLvB-QmGLp4RiyY28n76R",
 	"check": "_3kCEG-vTX_vhPjoEcKVfml",
 	"undo": "z9V7qtbkwnMqskt0spxZA"
 };

@@ -3,6 +3,7 @@ import TableItem from "../../components/TableItem/TableItem";
 import Preloader from "../../components/UI/Preloader/Preloader";
 import EditItem from "../../components/TableItem/EditItem/EditItem";
 import {Link} from "react-router-dom";
+import SearchForm from "../../components/UI/SearchForm/SearchForm";
 
 const renderValidatorPage = (message) => {
     return (
