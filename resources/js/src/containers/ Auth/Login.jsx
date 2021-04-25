@@ -36,7 +36,7 @@ export default function Login(props) {
     return (
             <div className={"h-100 d-flex justify-content-center align-items-center flex-column " + style.Auth}>
 
-                <form className={"bg-light " + style.form} onSubmit={loginForm.handleSubmit}>
+                <form className={"bg-light border " + style.form} onSubmit={loginForm.handleSubmit}>
                     <h2 className="text-center mb-3">Авторизация</h2>
                     <div className="mb-3">
                         <label htmlFor="email" className="form-label">Email</label>

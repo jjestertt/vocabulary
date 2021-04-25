@@ -27,7 +27,8 @@ export default function EditItem(props) {
         },
         validate,
         onSubmit: values => {
-            props.editWordToServerHandler(values.russianName, values.englishName, props.uniqKey)
+            props.editWordToServerHandler(values.russianName, values.englishName, props.uniqKey);
+            props.changeEditHandler(props.uniqKey, false);
         },
     });
 

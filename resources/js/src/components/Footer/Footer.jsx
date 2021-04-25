@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <footer className="footer mt-auto py-3 bg-light">
+        <footer className="footer mt-auto py-3 bg-dark text-light">
             <div className="container">
                 <span className="text-muted">Сивак Максим</span>
                 <span className="text-muted float-right">

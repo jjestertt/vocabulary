@@ -1,29 +1,39 @@
-import React from "react";
+import React, {useEffect} from "react";
 import TableItem from "../../components/TableItem/TableItem";
 import Preloader from "../../components/UI/Preloader/Preloader";
 import EditItem from "../../components/TableItem/EditItem/EditItem";
 
-export default function Table(props) {
-
-    if (!props.words) {
-        return <Preloader/>
+export default function SearchResults(props) {
+    if (props.isFetch){
+        return <Preloader />
     }
+    
+    if (!props.searchResults) {
+        return (
+            <>
+                <h1 className="mb-4">Результаты поиска</h1>
+                <p>Пожалуйста введите запрос</p>
+            </>
+        );
+    }
+
 
     const changeEditHandler = (id, prop) => {
-        const tempWords = props.words.map(word => {
-            if (word.id === id) {
-                return {...word, isEdit: prop}
+        const tempResults = props.searchResults.map(result => {
+            if (result.id === id) {
+                return {...result, isEdit: prop}
             }
-            return word;
+            return result;
         });
-        props.setWords(tempWords);
+        props.setSearchResults(tempResults);
     }
 
-    const showTableItem = props.words.map((item, index) => (
+    const showTableItem = props.searchResults.map((item, index) => (
         item.isEdit
-            ? <EditItem changeEditHandler={changeEditHandler} editWordToServerHandler={props.api.editWordToServerHandler}
-                        key={item.id} uniqKey={item.id} index={index + 1}
-                        russianName={item.name} englishName={item.name_en}
+            ?
+            <EditItem changeEditHandler={changeEditHandler} editWordToServerHandler={props.api.editWordToServerHandler}
+                      key={item.id} uniqKey={item.id} index={index + 1}
+                      russianName={item.name} englishName={item.name_en}
             />
             : <TableItem deleteItemHandler={props.api.deleteItemHandler} changeEditHandler={changeEditHandler}
                          key={item.id} uniqKey={item.id} index={index + 1}
@@ -31,9 +41,11 @@ export default function Table(props) {
             />
     ));
 
+    useEffect(() => () =>{props.setSearchResults(null)});
+
     return (
         <div className="pt-2 pb-5 mb-2">
-            <h1 className="mb-4">Словарный запас</h1>
+            <h1 className="mb-4">Результаты поиска</h1>
             {props.isFetch
                 ? <Preloader/>
                 : <div className="mt-4">

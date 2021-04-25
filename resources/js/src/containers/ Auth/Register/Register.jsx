@@ -38,7 +38,7 @@ export default function Register(props) {
     return (
         <div className={"h-100 d-flex justify-content-center align-items-center flex-column " + style.Register}>
 
-            <form className={"bg-light " + style.form} onSubmit={registerForm.handleSubmit}>
+            <form className={"bg-light border " + style.form} onSubmit={registerForm.handleSubmit}>
                 <h2 className="text-center mb-3">Регистрация</h2>
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Ваше имя</label>
