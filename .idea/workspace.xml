@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c22396c1-cc6f-4741-8051-4098c3cad182" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/src/components/Navbar/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/Navbar/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/src/components/TableItem/TableItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/TableItem/TableItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/src/components/TableItem/TableItem.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/components/TableItem/TableItem.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/src/containers/SearchResults/SearchResults.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/containers/SearchResults/SearchResults.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/src/hoc/Layout/Layout.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/src/hoc/Layout/Layout.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +80,9 @@
       <workItem from="1619174808245" duration="12541000" />
       <workItem from="1619283149136" duration="1029000" />
       <workItem from="1619284231408" duration="3977000" />
-      <workItem from="1619306164806" duration="12927000" />
+      <workItem from="1619306164806" duration="13085000" />
+      <workItem from="1619449700918" duration="513000" />
+      <workItem from="1619540347434" duration="2039000" />
     </task>
     <servers />
   </component>
